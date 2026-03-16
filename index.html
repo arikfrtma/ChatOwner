@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZiudithRie'X - Official</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        body {
+            background: #0a0e27;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Login Page */
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container {
+            background: #12162c;
+            border-radius: 20px;
+            padding: 35px 30px;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, #00ffff, transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: #ff00ff;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px magenta;
+            margin-bottom: 10px;
+        }
+
+        .login-header h1 span {
+            color: #00ffff;
+            text-shadow: 0 0 10px cyan;
+        }
+
+        .login-header .powered {
+            color: #00ffff;
+            font-size: 13px;
+            text-shadow: 0 0 10px cyan;
+            border-top: 1px dashed #2a2f55;
+            border-bottom: 1px dashed #2a2f55;
+            padding: 8px 0;
+        }
+
+        .access-box {
+            background: #1a1f3a;
+            border: 2px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .access-box .title {
+            color: #00ffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .owner-contact {
+            background: #0a0e27;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 14px;
+            padding: 10px;
+            background: #2a2f55;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid #ff00ff;
+        }
+
+        .contact-row span:first-child {
+            color: #ff00ff;
+            font-size: 18px;
+        }
+
+        .contact-row .telegram-id {
+            color: #00ffff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .telegram-btn {
+            display: inline-block;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 15px 0 5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .telegram-btn:hover {
+            background: #00ffff;
+            color: #0a0e27;
+            transform: scale(1.02);
+            box-shadow: 0 0 25px cyan;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+        }
+
+        .input-field label {
+            display: block;
+            color: #8d8fad;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 15px;
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            color: #00ffff;
+            font-size: 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .input-field input:focus {
+            outline: none;
+            border-color: #ff00ff;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #0a0e27;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 255, 0.6);
+        }
+
+        .login-info {
+            margin-top: 25px;
+            padding: 15px;
+            background: #1a1f3a;
+            border-radius: 10px;
+            font-size: 11px;
+            color: #8d8fad;
+            border-left: 4px solid #ff00ff;
+        }
+
+        .login-info strong {
+            color: #ff00ff;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        /* Main App */
+        .crash-container {
+            width: 100%;
+            max-width: 650px;
+            background: #12162c;
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+            display: none;
+        }
+
+        .crash-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2a2f55;
+            padding-bottom: 15px;
+        }
+
+        .crash-header h1 {
+            color: #00ffff;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px cyan;
+            margin-bottom: 5px;
+        }
+
+        .crash-header .developer {
+            color: #ff00ff;
+            font-size: 14px;
+            text-shadow: 0 0 10px magenta;
+        }
+
+        .user-badge {
+            background: #1a1f3a;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid #ff00ff;
+        }
+
+        .user-badge span {
+            color: #00ffff;
+            font-size: 12px;
+        }
+
+        .target-section {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .target-label {
+            color: #8d8fad;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .target-label .provider-hint {
+            color: #ff00ff;
+            font-size: 10px;
+            background: #1a1f3a;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .target-number {
+            background: #1a1f3a;
+            border: 2px solid #2a2f55;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .target-number input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #00ffff;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .target-number input:focus {
+            outline: none;
+        }
+
+        .target-number input::placeholder {
+            color: #2a2f55;
+        }
+
+        .provider-info {
+            font-size: 11px;
+            color: #8d8fad;
+            margin-bottom: 15px;
+            padding: 8px;
+            background: #0a0e27;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .provider-info span {
+            color: #ff00ff;
+            font-weight: bold;
+        }
+
+        .bug-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .bug-item {
+            flex: 1;
+            background: #1a1f3a;
+            border: 2px solid #2a2f55;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bug-item.active {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px cyan;
+            background: #0a0e27;
+        }
+
+        .bug-item .label {
+            color: #8d8fad;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .bug-item .value {
+            color: #ff00ff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .bug-item .value.green {
+            color: #00ff00;
+        }
+
+        .status-info {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-left {
+            color: #8d8fad;
+            font-size: 12px;
+        }
+
+        .status-right {
+            color: #00ffff;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .online-dot {
+            width: 10px;
+            height: 10px;
+            background: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .upload-section {
+            background: linear-gradient(45deg, #0a0e27, #1a1f3a);
+            border: 2px solid #ff00ff;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .upload-section:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        .upload-section .icon {
+            color: #ff00ff;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .upload-section .text {
+            color: #00ffff;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .upload-section .subtext {
+            color: #8d8fad;
+            font-size: 11px;
+        }
+
+        .result-section {
+            background: #0a0e27;
+            border: 2px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .result-title {
+            color: #ff00ff;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* KTP Style Card */
+        .ktp-card {
+            background: linear-gradient(135deg, #2a3f5a, #1a2a3a);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .ktp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .ktp-title {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .ktp-logo {
+            color: #ffd700;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .ktp-photo {
+            float: right;
+            width: 100px;
+            height: 120px;
+            background: linear-gradient(45deg, #4a5a6a, #3a4a5a);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            margin-left: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 40px;
+        }
+
+        .ktp-photo span {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .ktp-info {
+            margin-right: 115px;
+        }
+
+        .ktp-row {
+            display: flex;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #4a5a6a;
+            padding-bottom: 3px;
+        }
+
+        .ktp-label {
+            width: 100px;
+            color: #8d8fad;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .ktp-value {
+            flex: 1;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .ktp-nik {
+            font-size: 16px;
+            color: #ffd700;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            padding: 5px;
+            background: #1a2a3a;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #ffd700;
+        }
+
+        .ktp-footer {
+            margin-top: 15px;
+            border-top: 2px solid #ffd700;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            color: #8d8fad;
+            font-size: 9px;
+        }
+
+        .profile-card {
+            background: #1a1f3a;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff00ff;
+        }
+
+        .profile-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #2a2f55;
+        }
+
+        .profile-label {
+            color: #8d8fad;
+            font-size: 12px;
+        }
+
+        .profile-value {
+            color: #00ffff;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .parents-section {
+            background: #1a1f3a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #00ffff;
+        }
+
+        .parents-title {
+            color: #ff00ff;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .parent-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .parent-item {
+            flex: 1;
+            background: #0a0e27;
+            border-radius: 8px;
+            padding: 10px;
+            border-left: 3px solid #ffd700;
+        }
+
+        .parent-label {
+            color: #8d8fad;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .parent-name {
+            color: #00ffff;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .parent-nik {
+            color: #ffd700;
+            font-size: 10px;
+            margin-top: 3px;
+        }
+
+        .location-detail {
+            background: #0a0e27;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .location-label {
+            color: #8d8fad;
+        }
+
+        .location-value {
+            color: #ff00ff;
+            font-weight: bold;
+        }
+
+        .map-indicator {
+            background: #1a1f3a;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            border: 2px dashed #2a2f55;
+        }
+
+        .map-indicator .dot {
+            width: 15px;
+            height: 15px;
+            background: #ff00ff;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .coordinate-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .coord-item {
+            background: #1a1f3a;
+            border: 2px solid #2a2f55;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .coord-label {
+            color: #8d8fad;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .coord-value {
+            color: #00ffff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: #ff00ff;
+            color: #0a0e27;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #00ffff;
+            box-shadow: 0 0 25px cyan;
+        }
+
+        .history-section {
+            margin-top: 20px;
+            background: #1a1f3a;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .history-title {
+            color: #00ffff;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .history-item {
+            font-size: 11px;
+            color: #8d8fad;
+            padding: 5px 0;
+            border-bottom: 1px dashed #2a2f55;
+        }
+
+        .history-item span {
+            color: #ff00ff;
+        }
+
+        .provider-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .provider-telkomsel { background: #ff0000; color: white; }
+        .provider-indosat { background: #ff6b00; color: white; }
+        .provider-xl { background: #0000ff; color: white; }
+        .provider-axis { background: #800080; color: white; }
+        .provider-tri { background: #00ff00; color: black; }
+        .provider-smart { background: #ffff00; color: black; }
+        .provider-three { background: #ff00ff; color: white; }
+        .provider-byu { background: #00ffff; color: black; }
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-wrapper" id="loginPage">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Ziudith<span>Rie'X</span></h1>
+                <div class="powered">Powered By @ZiudithRie</div>
+            </div>
+
+            <div class="access-box">
+                <div class="title">🔐 AKSES TERBATAS</div>
+                <div class="owner-contact">
+                    <div class="contact-row">
+                        <span>👑</span>
+                        <span>Owner: <span class="telegram-id">@ZiudithRie</span></span>
+                    </div>
+                    <div class="contact-row">
+                        <span>👤</span>
+                        <span>Admin: <span class="telegram-id">@ZiudithAdmin</span></span>
+                    </div>
+                </div>
+                <a href="https://t.me/ZiudithRie" target="_blank" class="telegram-btn">
+                    📱 HUBUNGI OWNER VIA TELEGRAM
+                </a>
+            </div>
+
+            <div class="input-field">
+                <label>USERNAME</label>
+                <input type="text" id="username" placeholder="Masukkan username">
+            </div>
+
+            <div class="input-field">
+                <label>PASSWORD</label>
+                <input type="password" id="password" placeholder="Masukkan password">
+            </div>
+
+            <button class="login-btn" onclick="login()">LOGIN</button>
+
+            <div class="login-info">
+                <strong>⚠️ INFORMASI PENTING:</strong>
+                • Hanya owner dan admin yang memiliki akses<br>
+                • Username & password hanya dari owner @ZiudithRie via Telegram<br>
+                • Dilarang keras membagikan akun<br>
+                • 1 akun hanya untuk 1 orang
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Crash Page -->
+    <div class="crash-container" id="crashPage">
+        <div class="crash-header">
+            <h1>ZiudithRie'X Crash</h1>
+            <div class="developer">Developer @ZiudithRie</div>
+            <div class="user-badge" id="userBadge">
+                <span>👤 Logged in as: <span id="currentUser">owner</span></span>
+            </div>
+        </div>
+
+        <div class="target-section">
+            <div class="target-label">
+                🎯 TARGET NOMOR WHATSAPP
+                <span class="provider-hint" id="providerHint">Ketik nomor untuk lihat provider</span>
+            </div>
+            <div class="target-number">
+                <input type="text" id="waNumber" placeholder="Contoh: 628123456789" value="628" onkeyup="detectProvider()">
+            </div>
+            <div class="provider-info" id="providerDisplay">
+                Provider: <span id="providerName">-</span>
+            </div>
+
+            <div class="bug-selector">
+                <div class="bug-item active" onclick="selectBug('lokasi', this)">
+                    <div class="label">Selec Lok</div>
+                    <div class="value">📍 LACAK LOKASI</div>
+                </div>
+                <div class="bug-item" onclick="selectBug('blank', this)">
+                    <div class="label">LACAK LOKASI2</div>
+                    <div class="value green">✓ READY</div>
+                </div>
+            </div>
+
+            <div class="status-info">
+                <span class="status-left">⚡ SE:28 / 0:39</span>
+                <span class="status-right">
+                    <span class="online-dot"></span>
+                    <span>ONLINE</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="upload-section" onclick="trackLocation()">
+            <div class="icon">⬆️</div>
+            <div class="text" id="uploadText">MENGUPLOAD</div>
+            <div class="subtext">Klik untuk mulai melacak lokasi target</div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultContainer" style="display: none;">
+            <div class="result-section">
+                <div class="result-title">📊 HASIL PELACAKAN</div>
+                
+                <!-- KTP Card -->
+                <div class="ktp-card" id="ktpCard">
+                    <div class="ktp-header">
+                        <div class="ktp-title">PROVINSI DKI JAKARTA</div>
+                        <div class="ktp-logo">NIK <span id="nikKtp">-</span></div>
+                    </div>
+                    
+                    <!-- Foto KTP Simulasi -->
+                    <div class="ktp-photo" id="ktpPhoto">
+                        👤
+                        <span>FOTO</span>
+                    </div>
+                    
+                    <div class="ktp-info">
+                        <div class="ktp-row">
+                            <div class="ktp-label">Nama</div>
+                            <div class="ktp-value" id="ktpNama">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Tempat/Tgl Lahir</div>
+                            <div class="ktp-value" id="ktpTtl">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Jenis Kelamin</div>
+                            <div class="ktp-value" id="ktpJk">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Alamat</div>
+                            <div class="ktp-value" id="ktpAlamat">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">RT/RW</div>
+                            <div class="ktp-value" id="ktpRtrw">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Kel/Desa</div>
+                            <div class="ktp-value" id="ktpKelurahan">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Kecamatan</div>
+                            <div class="ktp-value" id="ktpKecamatan">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Agama</div>
+                            <div class="ktp-value" id="ktpAgama">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Status Perkawinan</div>
+                            <div class="ktp-value" id="ktpStatus">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Pekerjaan</div>
+                            <div class="ktp-value" id="ktpPekerjaan">-</div>
+                        </div>
+                        <div class="ktp-row">
+                            <div class="ktp-label">Kewarganegaraan</div>
+                            <div class="ktp-value" id="ktpWarga">WNI</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ktp-nik" id="ktpNikDisplay">-</div>
+                    
+                    <div class="ktp-footer">
+                        <span>Berlaku Hingga: SEUMUR HIDUP</span>
+                        <span>Dikeluarkan: DUKCAPIL</span>
+                    </div>
+                </div>
+
+                <!-- Parents Section -->
+                <div class="parents-section">
+                    <div class="parents-title">👪 DATA ORANG TUA</div>
+                    <div class="parent-row">
+                        <div class="parent-item">
+                            <div class="parent-label">AYAH KANDUNG</div>
+                            <div class="parent-name" id="ayahNama">-</div>
+                            <div class="parent-nik" id="ayahNik">-</div>
+                        </div>
+                        <div class="parent-item">
+                            <div class="parent-label">IBU KANDUNG</div>
+                            <div class="parent-name" id="ibuNama">-</div>
+                            <div class="parent-nik" id="ibuNik">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Detail -->
+                <div class="location-detail">
+                    <div class="location-row">
+                        <span class="location-label">Provinsi</span>
+                        <span class="location-value" id="provinsi">-</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kota/Kab</span>
+                        <span class="location-value" id="kota">-</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kecamatan</span>
+                        <span class="location-value" id="kecamatan">-</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kelurahan/Desa</span>
+                        <span class="location-value" id="kelurahan">-</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kode Pos</span>
+                        <span class="location-value" id="kodePos">-</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Provider</span>
+                        <span class="location-value" id="provider">-</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Waktu Lacak</span>
+                        <span class="location-value" id="waktuLacak">-</span>
+                    </div>
+                </div>
+
+                <!-- Map Indicator -->
+                <div class="map-indicator">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <div style="color:#8d8fad; margin-top:10px; font-size:11px;">
+                        📍 Posisi target di <span id="lokasiMap">-</span>
+                    </div>
+                </div>
+
+                <!-- Coordinates -->
+                <div class="coordinate-box">
+                    <div class="coord-item">
+                        <div class="coord-label">LATITUDE</div>
+                        <div class="coord-value" id="latitude">-</div>
+                    </div>
+                    <div class="coord-item">
+                        <div class="coord-label">LONGITUDE</div>
+                        <div class="coord-value" id="longitude">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-section" id="historySection" style="display: none;">
+            <div class="history-title">📋 RIWAYAT PELACAKAN</div>
+            <div id="historyList"></div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">KELUAR</button>
+    </div>
+
+    <script>
+        // ========== DATABASE USER ==========
+        // Hanya 2 user yang bisa login: owner dan admin
+        const VALID_USERS = {
+            'owner': 'ZiudithRieX2024',      // Username: owner, Password: ZiudithRieX2024
+            'admin': 'AdminZiudith456'        // Username: admin, Password: AdminZiudith456
+        };
+
+        // ========== DATABASE PREFIX PROVIDER ==========
+        const PROVIDER_PREFIX = {
+            // Telkomsel (Simpati, Kartu As, Loop)
+            '0811': 'Telkomsel', '0812': 'Telkomsel', '0813': 'Telkomsel', '0821': 'Telkomsel', 
+            '0822': 'Telkomsel', '0823': 'Telkomsel', '0852': 'Telkomsel', '0853': 'Telkomsel',
+            '0851': 'Telkomsel', '0814': 'Telkomsel', '0815': 'Telkomsel', '0816': 'Telkomsel',
+            '0855': 'Telkomsel', '0856': 'Telkomsel', '0857': 'Telkomsel', '0858': 'Telkomsel',
+            
+            // Indosat (IM3, Mentari)
+            '0814': 'Indosat', '0815': 'Indosat', '0816': 'Indosat', '0855': 'Indosat',
+            '0856': 'Indosat', '0857': 'Indosat', '0858': 'Indosat', '0877': 'Indosat',
+            '0878': 'Indosat', '0887': 'Indosat', '0888': 'Indosat',
+            
+            // XL Axiata
+            '0817': 'XL Axiata', '0818': 'XL Axiata', '0819': 'XL Axiata', '0859': 'XL Axiata',
+            '0877': 'XL Axiata', '0878': 'XL Axiata', '0881': 'XL Axiata', '0882': 'XL Axiata',
+            '0883': 'XL Axiata', '0884': 'XL Axiata', '0885': 'XL Axiata', '0886': 'XL Axiata',
+            '0887': 'XL Axiata', '0888': 'XL Axiata',
+            
+            // Axis
+            '0831': 'Axis', '0832': 'Axis', '0833': 'Axis', '0838': 'Axis',
+            '0839': 'Axis', '0837': 'Axis', '0834': 'Axis', '0835': 'Axis', '0836': 'Axis',
+            
+            // Tri/3
+            '0895': 'Tri', '0896': 'Tri', '0897': 'Tri', '0898': 'Tri', '0899': 'Tri',
+            
+            // Smartfren
+            '0881': 'Smartfren', '0882': 'Smartfren', '0883': 'Smartfren', '0884': 'Smartfren',
+            '0885': 'Smartfren', '0886': 'Smartfren', '0887': 'Smartfren', '0888': 'Smartfren',
+            '0889': 'Smartfren',
+            
+            // By.U
+            '0828': 'By.U', '0829': 'By.U', '0827': 'By.U'
+        };
+
+        // ========== DATABASE NAMA INDONESIA ==========
+        const NAMA_INDONESIA = {
+            laki: [
+                'Budi Santoso', 'Agus Wijaya', 'Bambang Prasetyo', 'Joko Susilo', 'Rudi Hartono',
+                'Hendra Gunawan', 'Arief Rahman', 'Dedi Kurniawan', 'Eko Prasetyo', 'Fajar Nugroho',
+                'Gunawan Saputra', 'Hari Setiawan', 'Indra Lesmana', 'Jaka Purnama', 'Kusuma Wijaya',
+                'Lukman Hakim', 'Mulyadi', 'Nugroho', 'Purnomo', 'Rahmat Hidayat',
+                'Slamet Riyadi', 'Sugeng', 'Suryadi', 'Teguh Santoso', 'Wahyu Saputra',
+                'Yanto', 'Zainal Arifin', 'Asep Saepudin', 'Cecep', 'Dadang'
+            ],
+            perempuan: [
+                'Siti Aminah', 'Nurul Hidayah', 'Dewi Sartika', 'Rina Wati', 'Maya Sari',
+                'Lestari', 'Fitri Handayani', 'Indah Permata', 'Kartika Sari', 'Ratna Dewi',
+                'Sri Wahyuni', 'Yuli Astuti', 'Dian Purnama', 'Eka Putri', 'Rika Utami',
+                'Anisa Rahma', 'Bunga Citra', 'Citra Dewi', 'Dina Marlina', 'Elsa Fitria',
+                'Farah Diba', 'Gita Gutawa', 'Hana Safira', 'Intan Permata', 'Julia Rahmawati',
+                'Kiki Amalia', 'Lilis Suryani', 'Mega Wati', 'Nina Zatulini', 'Olivia Lubis'
+            ]
+        };
+
+        // ========== DATABASE PEKERJAAN ==========
+        const PEKERJAAN = [
+            'Karyawan Swasta', 'PNS', 'Guru', 'Dokter', 'Perawat',
+            'Pedagang', 'Petani', 'Nelayan', 'Supir', 'Buruh',
+            'Wiraswasta', 'Polisi', 'TNI', 'Satpam', 'Koki',
+            'Programmer', 'Desainer', 'Arsitek', 'Akuntan', 'Pengacara',
+            'Dosen', 'Mahasiswa', 'Pelajar', 'Ibu Rumah Tangga', 'Pensiunan',
+            'Sopir', 'Mekanik', 'Tukang', 'Karyawan BUMN', 'Freelancer'
+        ];
+
+        // ========== DATABASE AGAMA ==========
+        const AGAMA = ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu'];
+
+        // ========== DATABASE STATUS ==========
+        const STATUS = ['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati'];
+
+        // ========== DATABASE LOKASI INDONESIA ==========
+        const LOKASI_INDONESIA = [
+            { 
+                provinsi: 'DKI Jakarta', 
+                kota: 'Jakarta Pusat', 
+                kecamatan: 'Menteng', 
+                kelurahan: 'Gondangdia', 
+                kodePos: '10350',
+                latitude: '-6.2088', 
+                longitude: '106.8456'
+            },
+            { 
+                provinsi: 'DKI Jakarta', 
+                kota: 'Jakarta Selatan', 
+                kecamatan: 'Kebayoran Baru', 
+                kelurahan: 'Senayan', 
+                kodePos: '12190',
+                latitude: '-6.2250', 
+                longitude: '106.8000'
+            },
+            { 
+                provinsi: 'Jawa Barat', 
+                kota: 'Bandung', 
+                kecamatan: 'Coblong', 
+                kelurahan: 'Dago', 
+                kodePos: '40135',
+                latitude: '-6.9175', 
+                longitude: '107.6191'
+            },
+            { 
+                provinsi: 'Jawa Barat', 
+                kota: 'Bekasi', 
+                kecamatan: 'Bekasi Timur', 
+                kelurahan: 'Bekasi Jaya', 
+                kodePos: '17112',
+                latitude: '-6.2349', 
+                longitude: '106.9896'
+            },
+            { 
+                provinsi: 'Jawa Timur', 
+                kota: 'Surabaya', 
+                kecamatan: 'Genteng', 
+                kelurahan: 'Embong Kaliasin', 
+                kodePos: '60271',
+                latitude: '-7.2575', 
+                longitude: '112.7521'
+            },
+            { 
+                provinsi: 'Jawa Timur', 
+                kota: 'Malang', 
+                kecamatan: 'Lowokwaru', 
+                kelurahan: 'Dau', 
+                kodePos: '65141',
+                latitude: '-7.9839', 
+                longitude: '112.6214'
+            },
+            { 
+                provinsi: 'Jawa Tengah', 
+                kota: 'Semarang', 
+                kecamatan: 'Semarang Tengah', 
+                kelurahan: 'Pindrikan Lor', 
+                kodePos: '50131',
+                latitude: '-6.9932', 
+                longitude: '110.4203'
+            },
+            { 
+                provinsi: 'Jawa Tengah', 
+                kota: 'Solo', 
+                kecamatan: 'Banjarsari', 
+                kelurahan: 'Manahan', 
+                kodePos: '57139',
+                latitude: '-7.5567', 
+                longitude: '110.8314'
+            },
+            { 
+                provinsi: 'Sumatera Utara', 
+                kota: 'Medan', 
+                kecamatan: 'Medan Baru', 
+                kelurahan: 'Petisah Tengah', 
+                kodePos: '20153',
+                latitude: '3.5952', 
+                longitude: '98.6722'
+            },
+            { 
+                provinsi: 'Sumatera Barat', 
+                kota: 'Padang', 
+                kecamatan: 'Padang Barat', 
+                kelurahan: 'Olo', 
+                kodePos: '25111',
+                latitude: '-0.9537', 
+                longitude: '100.3519'
+            },
+            { 
+                provinsi: 'Riau', 
+                kota: 'Pekanbaru', 
+                kecamatan: 'Sukajadi', 
+                kelurahan: 'Kedung Sari', 
+                kodePos: '28121',
+                latitude: '0.5071', 
+                longitude: '101.4478'
+            },
+            { 
+                provinsi: 'Kepulauan Riau', 
+                kota: 'Batam', 
+                kecamatan: 'Batam Kota', 
+                kelurahan: 'Baloi Permai', 
+                kodePos: '29432',
+                latitude: '1.0456', 
+                longitude: '104.0304'
+            },
+            { 
+                provinsi: 'Sumatera Selatan', 
+                kota: 'Palembang', 
+                kecamatan: 'Ilir Barat I', 
+                kelurahan: 'Bukit Lama', 
+                kodePos: '30131',
+                latitude: '-2.9761', 
+                longitude: '104.7754'
+            },
+            { 
+                provinsi: 'Lampung', 
+                kota: 'Bandar Lampung', 
+                kecamatan: 'Tanjung Karang', 
+                kelurahan: 'Gotong Royong', 
+                kodePos: '35111',
+                latitude: '-5.4500', 
+                longitude: '105.2667'
+            },
+            { 
+                provinsi: 'Banten', 
+                kota: 'Tangerang', 
+                kecamatan: 'Tangerang Kota', 
+                kelurahan: 'Sukasari', 
+                kodePos: '15111',
+                latitude: '-6.1783', 
+                longitude: '106.6319'
+            },
+            { 
+                provinsi: 'Bali', 
+                kota: 'Denpasar', 
+                kecamatan: 'Denpasar Selatan', 
+                kelurahan: 'Sanur', 
+                kodePos: '80227',
+                latitude: '-8.6705', 
+                longitude: '115.2126'
+            }
+        ];
+
+        // ========== DATABASE LOKASI (MENYIMPAN DATA PER NOMOR) ==========
+        let locationDatabase = JSON.parse(localStorage.getItem('locationDatabase')) || {};
+
+        // ========== FUNGSI GENERATE NIK ==========
+        function generateNIK(provinsi, kota, tanggalLahir, gender) {
+            // Format NIK: PPKKDDMMYYRRRGG
+            // PP = kode provinsi (contoh: 31 = DKI Jakarta)
+            // KK = kode kota (contoh: 71 = Jakarta Pusat)
+            // DDMMYY = tanggal lahir
+            // RRR = nomor urut random
+            // G = gender (1 = laki, 2 = perempuan)
+            
+            let kodeProv = {
+                'DKI Jakarta': '31',
+                'Jawa Barat': '32',
+                'Jawa Tengah': '33',
+                'Jawa Timur': '35',
+                'Sumatera Utara': '12',
+                'Sumatera Barat': '13',
+                'Riau': '14',
+                'Kepulauan Riau': '21',
+                'Sumatera Selatan': '16',
+                'Lampung': '18',
+                'Banten': '36',
+                'Bali': '51'
+            };
+            
+            let kodeKota = {
+                'Jakarta Pusat': '71',
+                'Jakarta Selatan': '74',
+                'Bandung': '73',
+                'Bekasi': '75',
+                'Surabaya': '78',
+                'Malang': '79',
+                'Semarang': '74',
+                'Solo': '72',
+                'Medan': '71',
+                'Padang': '71',
+                'Pekanbaru': '71',
+                'Batam': '71',
+                'Palembang': '71',
+                'Bandar Lampung': '71',
+                'Tangerang': '71',
+                'Denpasar': '71'
+            };
+            
+            let provCode = kodeProv[provinsi] || '99';
+            let kotaCode = kodeKota[kota] || '99';
+            
+            // Ambil tanggal dari parameter atau random
+            let tgl = tanggalLahir || '';
+            
+            // Nomor urut random (3 digit)
+            let nomorUrut = Math.floor(Math.random() * 900) + 100;
+            
+            // Gender: 1 untuk laki-laki, 2 untuk perempuan
+            let genderCode = gender === 'Laki-laki' ? '1' : '2';
+            
+            return provCode + kotaCode + tgl + nomorUrut + genderCode;
+        }
+
+        // ========== FUNGSI GENERATE TANGGAL LAHIR ==========
+        function generateTanggalLahir(umur) {
+            let tahun = new Date().getFullYear() - umur;
+            let bulan = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+            let tanggal = String(Math.floor(Math.random() * 28) + 1).padStart(2, '0');
+            
+            return {
+                full: tanggal + '-' + bulan + '-' + tahun,
+                nik: tanggal + bulan + tahun.toString().substr(-2)
+            };
+        }
+
+        // ========== FUNGSI DETEKSI PROVIDER ==========
+        function detectProvider() {
+            let waNumber = document.getElementById('waNumber').value.trim();
+            let providerName = document.getElementById('providerName');
+            let providerDisplay = document.getElementById('providerDisplay');
+            
+            // Hapus semua karakter non-digit
+            waNumber = waNumber.replace(/\D/g, '');
+            
+            if (waNumber.length >= 4) {
+                // Ambil 4 digit pertama
+                let prefix = waNumber.substring(0, 4);
+                
+                // Cek di database provider
+                if (PROVIDER_PREFIX[prefix]) {
+                    providerName.innerText = PROVIDER_PREFIX[prefix];
+                    providerDisplay.style.backgroundColor = '#1a3a1a';
+                } else {
+                    // Coba dengan 3 digit
+                    let prefix3 = waNumber.substring(0, 3);
+                    let found = false;
+                    
+                    for (let key in PROVIDER_PREFIX) {
+                        if (key.startsWith(prefix3)) {
+                            providerName.innerText = PROVIDER_PREFIX[key];
+                            providerDisplay.style.backgroundColor = '#1a3a1a';
+                            found = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!found) {
+                        providerName.innerText = 'Tidak diketahui';
+                        providerDisplay.style.backgroundColor = '#3a1a1a';
+                    }
+                }
+            } else {
+                providerName.innerText = '-';
+                providerDisplay.style.backgroundColor = '#0a0e27';
+            }
+        }
+
+        // ========== FUNGSI LOGIN ==========
+        function login() {
+            let username = document.getElementById('username').value.trim();
+            let password = document.getElementById('password').value.trim();
+
+            if (!username || !password) {
+                alert('❌ Username dan Password harus diisi!');
+                return;
+            }
+
+            // Cek apakah username ada di VALID_USERS dan password cocok
+            if (VALID_USERS[username] && VALID_USERS[username] === password) {
+                // Login berhasil
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('crashPage').style.display = 'block';
+                document.getElementById('currentUser').innerText = username;
+                
+                // Tampilkan history jika ada
+                loadHistory();
+            } else {
+                alert('❌ Username atau Password salah!\n\nHubungi owner di Telegram @ZiudithRie untuk mendapatkan akses.');
+            }
+        }
+
+        // ========== FUNGSI LOGOUT ==========
+        function logout() {
+            document.getElementById('crashPage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('resultContainer').style.display = 'none';
+            document.getElementById('historySection').style.display = 'none';
+        }
+
+        // ========== FUNGSI SELECT BUG ==========
+        function selectBug(type, element) {
+            // Hapus class active dari semua bug item
+            let items = document.querySelectorAll('.bug-item');
+            items.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Tambah class active ke yang diklik
+            element.classList.add('active');
+        }
+
+        // ========== FUNGSI GENERATE DATA RANDOM ==========
+        function generateRandomData(waNumber) {
+            // Random jenis kelamin
+            let gender = Math.random() < 0.5 ? 'laki' : 'perempuan';
+            let jenisKelamin = gender === 'laki' ? 'Laki-laki' : 'Perempuan';
+            
+            // Random nama berdasarkan gender
+            let namaArray = gender === 'laki' ? NAMA_INDONESIA.laki : NAMA_INDONESIA.perempuan;
+            let nama = namaArray[Math.floor(Math.random() * namaArray.length)];
+            
+            // Random umur (17-49 tahun)
+            let umur = Math.floor(Math.random() * 33) + 17; // 17-49
+            
+            // Generate tanggal lahir
+            let tglLahir = generateTanggalLahir(umur);
+            
+            // Random pekerjaan
+            let pekerjaan = PEKERJAAN[Math.floor(Math.random() * PEKERJAAN.length)];
+            
+            // Random agama
+            let agama = AGAMA[Math.floor(Math.random() * AGAMA.length)];
+            
+            // Random status
+            let status = STATUS[Math.floor(Math.random() * STATUS.length)];
+            
+            // Random lokasi
+            let lokasi = LOKASI_INDONESIA[Math.floor(Math.random() * LOKASI_INDONESIA.length)];
+            
+            // Generate NIK
+            let nik = generateNIK(lokasi.provinsi, lokasi.kota, tglLahir.nik, jenisKelamin);
+            
+            // Dapatkan provider dari nomor
+            let provider = getProviderFromNumber(waNumber);
+            
+            // Generate nama orang tua
+            let ayahNama = NAMA_INDONESIA.laki[Math.floor(Math.random() * NAMA_INDONESIA.laki.length)];
+            let ibuNama = NAMA_INDONESIA.perempuan[Math.floor(Math.random() * NAMA_INDONESIA.perempuan.length)];
+            
+            // Generate NIK orang tua
+            let ayahTgl = generateTanggalLahir(umur + 25);
+            let ibuTgl = generateTanggalLahir(umur + 22);
+            
+            let ayahNik = generateNIK(lokasi.provinsi, lokasi.kota, ayahTgl.nik, 'Laki-laki');
+            let ibuNik = generateNIK(lokasi.provinsi, lokasi.kota, ibuTgl.nik, 'Perempuan');
+            
+            // Alamat lengkap
+            let alamat = 'Jl. ' + ['Merdeka', 'Sudirman', 'Thamrin', 'Gatot Subroto', 'Ahmad Yani'][Math.floor(Math.random() * 5)] + ' No. ' + Math.floor(Math.random() * 100);
+            
+            // RT/RW
+            let rt = String(Math.floor(Math.random() * 20) + 1).padStart(3, '0');
+            let rw = String(Math.floor(Math.random() * 20) + 1).padStart(3, '0');
+            
+            return {
+                nama: nama,
+                nik: nik,
+                ttl: lokasi.kota + ', ' + tglLahir.full,
+                jenisKelamin: jenisKelamin,
+                alamat: alamat,
+                rt: rt,
+                rw: rw,
+                kelurahan: lokasi.kelurahan,
+                kecamatan: lokasi.kecamatan,
+                agama: agama,
+                status: status,
+                pekerjaan: pekerjaan,
+                provinsi: lokasi.provinsi,
+                kota: lokasi.kota,
+                kodePos: lokasi.kodePos,
+                latitude: lokasi.latitude,
+                longitude: lokasi.longitude,
+                provider: provider,
+                waktu: new Date().toLocaleString('id-ID'),
+                ayah: {
+                    nama: ayahNama,
+                    nik: ayahNik
+                },
+                ibu: {
+                    nama: ibuNama,
+                    nik: ibuNik
+                }
+            };
+        }
+
+        // ========== FUNGSI GET PROVIDER DARI NOMOR ==========
+        function getProviderFromNumber(waNumber) {
+            // Bersihkan nomor
+            waNumber = waNumber.replace(/\D/g, '');
+            
+            if (waNumber.length >= 4) {
+                let prefix = waNumber.substring(0, 4);
+                
+                if (PROVIDER_PREFIX[prefix]) {
+                    return PROVIDER_PREFIX[prefix];
+                } else {
+                    // Coba dengan 3 digit
+                    let prefix3 = waNumber.substring(0, 3);
+                    for (let key in PROVIDER_PREFIX) {
+                        if (key.startsWith(prefix3)) {
+                            return PROVIDER_PREFIX[key];
+                        }
+                    }
+                }
+            }
+            
+            return 'Tidak diketahui';
+        }
+
+        // ========== FUNGSI TRACK LOCATION ==========
+        function trackLocation() {
+            let waNumber = document.getElementById('waNumber').value.trim();
+            
+            if (!waNumber || waNumber === '62' || waNumber === '628') {
+                alert('❌ Masukkan nomor WhatsApp target dengan benar!\nContoh: 628123456789');
+                return;
+            }
+
+            // Validasi nomor (hanya angka)
+            if (!/^\d+$/.test(waNumber.replace(/\D/g, ''))) {
+                alert('❌ Nomor hanya boleh berisi angka!');
+                return;
+            }
+
+            // Animasi upload
+            let uploadText = document.getElementById('uploadText');
+            let originalText = uploadText.innerText;
+            uploadText.innerText = 'MEMPROSES...';
+            
+            setTimeout(() => {
+                // Cek apakah nomor sudah pernah dilacak
+                if (locationDatabase[waNumber]) {
+                    // Gunakan data yang sudah ada (tidak berubah)
+                    displayLocation(locationDatabase[waNumber]);
+                } else {
+                    // Generate data baru dengan provider dari nomor
+                    let newData = generateRandomData(waNumber);
+                    
+                    // Simpan ke database
+                    locationDatabase[waNumber] = newData;
+                    localStorage.setItem('locationDatabase', JSON.stringify(locationDatabase));
+                    
+                    // Tampilkan data
+                    displayLocation(newData);
+                }
+                
+                uploadText.innerText = originalText;
+                loadHistory();
+            }, 2000);
+        }
+
+        // ========== FUNGSI DISPLAY LOCATION ==========
+        function displayLocation(data) {
+            // Tampilkan data KTP
+            document.getElementById('nikKtp').innerText = data.nik.substr(-4);
+            document.getElementById('ktpNama').innerText = data.nama;
+            document.getElementById('ktpTtl').innerText = data.ttl;
+            document.getElementById('ktpJk').innerText = data.jenisKelamin;
+            document.getElementById('ktpAlamat').innerText = data.alamat;
+            document.getElementById('ktpRtrw').innerText = data.rt + '/' + data.rw;
+            document.getElementById('ktpKelurahan').innerText = data.kelurahan;
+            document.getElementById('ktpKecamatan').innerText = data.kecamatan;
+            document.getElementById('ktpAgama').innerText = data.agama;
+            document.getElementById('ktpStatus').innerText = data.status;
+            document.getElementById('ktpPekerjaan').innerText = data.pekerjaan;
+            document.getElementById('ktpNikDisplay').innerText = 'NIK: ' + data.nik;
+            
+            // Ganti foto KTP berdasarkan jenis kelamin
+            let ktpPhoto = document.getElementById('ktpPhoto');
+            if (data.jenisKelamin === 'Laki-laki') {
+                ktpPhoto.innerHTML = '👨<span>FOTO</span>';
+            } else {
+                ktpPhoto.innerHTML = '👩<span>FOTO</span>';
+            }
+            
+            // Data orang tua
+            document.getElementById('ayahNama').innerText = data.ayah.nama;
+            document.getElementById('ayahNik').innerText = 'NIK: ' + data.ayah.nik;
+            document.getElementById('ibuNama').innerText = data.ibu.nama;
+            document.getElementById('ibuNik').innerText = 'NIK: ' + data.ibu.nik;
+            
+            // Data lokasi
+            document.getElementById('provinsi').innerText = data.provinsi;
+            document.getElementById('kota').innerText = data.kota;
+            document.getElementById('kecamatan').innerText = data.kecamatan;
+            document.getElementById('kelurahan').innerText = data.kelurahan;
+            document.getElementById('kodePos').innerText = data.kodePos;
+            document.getElementById('provider').innerText = data.provider;
+            document.getElementById('waktuLacak').innerText = data.waktu;
+            
+            document.getElementById('latitude').innerText = data.latitude;
+            document.getElementById('longitude').innerText = data.longitude;
+            
+            document.getElementById('lokasiMap').innerHTML = `${data.kota}, ${data.provinsi}`;
+            
+            document.getElementById('resultContainer').style.display = 'block';
+        }
+
+        // ========== FUNGSI LOAD HISTORY ==========
+        function loadHistory() {
+            let historyList = document.getElementById('historyList');
+            let historyHtml = '';
+            
+            // Ambil semua nomor yang pernah dilacak
+            let numbers = Object.keys(locationDatabase);
+            
+            if (numbers.length > 0) {
+                document.getElementById('historySection').style.display = 'block';
+                
+                // Tampilkan 5 history terakhir
+                let recentNumbers = numbers.slice(-5).reverse();
+                
+                recentNumbers.forEach(number => {
+                    let data = locationDatabase[number];
+                    historyHtml += `
+                        <div class="history-item">
+                            📱 ${number.substr(0, 4)}****${number.substr(-3)} - 
+                            <span>${data.nama}</span> (${data.umur} th) - ${data.kota} - ${data.provider}
+                        </div>
+                    `;
+                });
+            } else {
+                document.getElementById('historySection').style.display = 'none';
+            }
+            
+            historyList.innerHTML = historyHtml;
+        }
+    </script>
+</body>
+</html>
