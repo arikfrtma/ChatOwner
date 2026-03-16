@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZuidithRie'X Crash</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        body {
+            background: #0a0e27;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Login Page */
+        .login-wrapper {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .login-container {
+            background: #12162c;
+            border-radius: 10px;
+            padding: 25px;
+            border: 2px solid #2a2f55;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .login-header h1 {
+            color: #00ffff;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px cyan;
+            border-bottom: 1px solid #2a2f55;
+            padding-bottom: 10px;
+        }
+
+        .login-header .powered {
+            color: #8d8fad;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .telegram-info {
+            background: #1a1f3a;
+            border-left: 4px solid #00ffff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .telegram-info p {
+            color: #ffffff;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .telegram-btn {
+            display: block;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        .input-field label {
+            display: block;
+            color: #8d8fad;
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            color: #00ffff;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .input-field input:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #00ffff;
+            color: #0a0e27;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #ff00ff;
+            color: white;
+            box-shadow: 0 0 20px magenta;
+        }
+
+        .login-note {
+            margin-top: 20px;
+            padding: 10px;
+            background: #1a1f3a;
+            border-radius: 5px;
+            font-size: 11px;
+            color: #8d8fad;
+            text-align: center;
+            border: 1px dashed #2a2f55;
+        }
+
+        /* Main App - Crash Page */
+        .crash-container {
+            width: 100%;
+            max-width: 500px;
+            background: #12162c;
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #2a2f55;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+            display: none;
+        }
+
+        .crash-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2a2f55;
+            padding-bottom: 15px;
+        }
+
+        .crash-header h1 {
+            color: #ff00ff;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px magenta;
+            margin-bottom: 5px;
+        }
+
+        .crash-header .developer {
+            color: #00ffff;
+            font-size: 14px;
+            text-shadow: 0 0 10px cyan;
+        }
+
+        .target-section {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .target-label {
+            color: #8d8fad;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .target-number {
+            background: #1a1f3a;
+            border: 2px solid #2a2f55;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .target-number input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #00ffff;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .target-number input:focus {
+            outline: none;
+        }
+
+        .target-number input::placeholder {
+            color: #2a2f55;
+        }
+
+        .bug-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .bug-item {
+            flex: 1;
+            background: #1a1f3a;
+            border: 2px solid #2a2f55;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bug-item.active {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px cyan;
+        }
+
+        .bug-item .label {
+            color: #8d8fad;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .bug-item .value {
+            color: #ff00ff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .bug-item .value.green {
+            color: #00ff00;
+        }
+
+        .status-info {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-left {
+            color: #8d8fad;
+            font-size: 12px;
+        }
+
+        .status-right {
+            color: #00ffff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .upload-section {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .upload-section:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .upload-section .icon {
+            color: #00ffff;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .upload-section .text {
+            color: #ff00ff;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .upload-section .subtext {
+            color: #8d8fad;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        .result-section {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .location-info {
+            background: #1a1f3a;
+            border-left: 4px solid #00ffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .location-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .location-label {
+            color: #8d8fad;
+        }
+
+        .location-value {
+            color: #00ffff;
+            font-weight: bold;
+        }
+
+        .coordinate-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .coord-item {
+            background: #0a0e27;
+            border: 2px solid #2a2f55;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .coord-label {
+            color: #8d8fad;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        .coord-value {
+            color: #ff00ff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: #ff00ff;
+            color: #0a0e27;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #00ffff;
+            box-shadow: 0 0 20px cyan;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        .indonesia-map {
+            background: #1a1f3a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+            height: 200px;
+            background-image: radial-gradient(circle at 20% 30%, #00ffff 1px, transparent 1px),
+                              radial-gradient(circle at 40% 50%, #ff00ff 1px, transparent 1px),
+                              radial-gradient(circle at 60% 40%, #00ffff 1px, transparent 1px),
+                              radial-gradient(circle at 80% 60%, #ff00ff 1px, transparent 1px);
+            background-size: 30px 30px;
+            border: 2px solid #2a2f55;
+        }
+
+        .map-marker {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #ff00ff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px magenta;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-wrapper" id="loginPage">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>ZuidithRie'X</h1>
+                <div class="powered">Powered By @ZuidithRie'X</div>
+            </div>
+
+            <div class="telegram-info">
+                <p>🔐 AKUN DIBUTUHKAN UNTUK LOGIN</p>
+                <p>📱 Hubungi Owner untuk mendapatkan Username & Password:</p>
+                <button class="telegram-btn" onclick="window.open('https://t.me/ZuidithRieX', '_blank')">
+                    👉 @ZuidithRie'X di Telegram
+                </button>
+            </div>
+
+            <div class="input-field">
+                <label>USERNAME</label>
+                <input type="text" id="username" placeholder="Masukkan username">
+            </div>
+
+            <div class="input-field">
+                <label>PASSWORD</label>
+                <input type="password" id="password" placeholder="Masukkan password">
+            </div>
+
+            <button class="login-btn" onclick="login()">LOGIN</button>
+
+            <div class="login-note">
+                <strong>⚠️ PENTING:</strong><br>
+                • Username & Password hanya dari Owner<br>
+                • Hubungi Telegram untuk registrasi<br>
+                • Dilarang sharing akun!
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Crash Page -->
+    <div class="crash-container" id="crashPage">
+        <div class="crash-header">
+            <h1>ZuidithRie'X Crash</h1>
+            <div class="developer">Developer @ZuidithRie'X</div>
+        </div>
+
+        <div class="target-section">
+            <div class="target-label">TARGET NOMOR WHATSAPP</div>
+            <div class="target-number">
+                <input type="text" id="waNumber" placeholder="Wa Number +62xxxxxxxxxx" value="+62">
+            </div>
+
+            <div class="bug-selector">
+                <div class="bug-item active" onclick="selectBug('lokasi')">
+                    <div class="label">select bug</div>
+                    <div class="value">📍 LOKASI</div>
+                </div>
+                <div class="bug-item" onclick="selectBug('blank')">
+                    <div class="label">Blank hard</div>
+                    <div class="value green">✓ READY</div>
+                </div>
+            </div>
+
+            <div class="status-info">
+                <span class="status-left">SE:28 / 0:39</span>
+                <span class="status-right blink">🟢 ONLINE</span>
+            </div>
+        </div>
+
+        <div class="upload-section" onclick="trackLocation()">
+            <div class="icon">⬆️</div>
+            <div class="text">MENGUPLOAD</div>
+            <div class="subtext">Klik untuk mulai lacak lokasi</div>
+        </div>
+
+        <!-- Result Section (hidden by default) -->
+        <div id="resultContainer" style="display: none;">
+            <div class="result-section">
+                <div class="location-info">
+                    <div class="location-row">
+                        <span class="location-label">Provinsi:</span>
+                        <span class="location-value" id="provinsi">DKI Jakarta</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kota/Kab:</span>
+                        <span class="location-value" id="kota">Jakarta Pusat</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kecamatan:</span>
+                        <span class="location-value" id="kecamatan">Menteng</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Kelurahan:</span>
+                        <span class="location-value" id="kelurahan">Gondangdia</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Provider:</span>
+                        <span class="location-value" id="provider">Telkomsel</span>
+                    </div>
+                    <div class="location-row">
+                        <span class="location-label">Waktu:</span>
+                        <span class="location-value" id="waktu">2024-01-20 14:30:45</span>
+                    </div>
+                </div>
+
+                <div class="indonesia-map">
+                    <div class="map-marker" style="top: 30%; left: 40%;"></div>
+                </div>
+
+                <div class="coordinate-box">
+                    <div class="coord-item">
+                        <div class="coord-label">LATITUDE</div>
+                        <div class="coord-value" id="latitude">-6.2088</div>
+                    </div>
+                    <div class="coord-item">
+                        <div class="coord-label">LONGITUDE</div>
+                        <div class="coord-value" id="longitude">106.8456</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">KELUAR</button>
+    </div>
+
+    <script>
+        // Database users (hanya bisa ditambah oleh owner via Telegram)
+        let validUsers = {
+            'admin': 'ZuidithRieX123',
+            'user1': 'Crash2024',
+            'member': 'Lokasi45'
+        };
+
+        // Database lokasi berdasarkan nomor
+        let locationDatabase = {};
+
+        // Data lokasi Indonesia (contoh)
+        const indonesiaLocations = {
+            'jakarta': {
+                provinsi: 'DKI Jakarta',
+                kota: 'Jakarta Pusat',
+                kecamatan: 'Menteng',
+                kelurahan: 'Gondangdia',
+                latitude: '-6.2088',
+                longitude: '106.8456',
+                provider: 'Telkomsel'
+            },
+            'bandung': {
+                provinsi: 'Jawa Barat',
+                kota: 'Bandung',
+                kecamatan: 'Coblong',
+                kelurahan: 'Dago',
+                latitude: '-6.9175',
+                longitude: '107.6191',
+                provider: 'Indosat'
+            },
+            'surabaya': {
+                provinsi: 'Jawa Timur',
+                kota: 'Surabaya',
+                kecamatan: 'Genteng',
+                kelurahan: 'Embong Kaliasin',
+                latitude: '-7.2575',
+                longitude: '112.7521',
+                provider: 'XL Axiata'
+            },
+            'medan': {
+                provinsi: 'Sumatera Utara',
+                kota: 'Medan',
+                kecamatan: 'Medan Baru',
+                kelurahan: 'Petisah Tengah',
+                latitude: '3.5952',
+                longitude: '98.6722',
+                provider: 'Telkomsel'
+            },
+            'makassar': {
+                provinsi: 'Sulawesi Selatan',
+                kota: 'Makassar',
+                kecamatan: 'Ujung Pandang',
+                kelurahan: 'Baru',
+                latitude: '-5.1477',
+                longitude: '119.4327',
+                provider: 'Indosat'
+            },
+            'denpasar': {
+                provinsi: 'Bali',
+                kota: 'Denpasar',
+                kecamatan: 'Denpasar Selatan',
+                kelurahan: 'Sanur',
+                latitude: '-8.6705',
+                longitude: '115.2126',
+                provider: 'Telkomsel'
+            },
+            'yogyakarta': {
+                provinsi: 'DI Yogyakarta',
+                kota: 'Yogyakarta',
+                kecamatan: 'Gondokusuman',
+                kelurahan: 'Baciro',
+                latitude: '-7.7956',
+                longitude: '110.3695',
+                provider: 'XL Axiata'
+            },
+            'semarang': {
+                provinsi: 'Jawa Tengah',
+                kota: 'Semarang',
+                kecamatan: 'Semarang Tengah',
+                kelurahan: 'Pindrikan Lor',
+                latitude: '-6.9932',
+                longitude: '110.4203',
+                provider: 'Telkomsel'
+            },
+            'palembang': {
+                provinsi: 'Sumatera Selatan',
+                kota: 'Palembang',
+                kecamatan: 'Ilir Barat I',
+                kelurahan: 'Bukit Lama',
+                latitude: '-2.9761',
+                longitude: '104.7754',
+                provider: 'Indosat'
+            },
+            'batam': {
+                provinsi: 'Kepulauan Riau',
+                kota: 'Batam',
+                kecamatan: 'Batam Kota',
+                kelurahan: 'Baloi Permai',
+                latitude: '1.0456',
+                longitude: '104.0304',
+                provider: 'Telkomsel'
+            }
+        };
+
+        function login() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('❌ Username dan Password harus diisi!');
+                return;
+            }
+
+            if (validUsers[username] && validUsers[username] === password) {
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('crashPage').style.display = 'block';
+                
+                // Update waktu setiap detik
+                updateWaktu();
+                setInterval(updateWaktu, 1000);
+            } else {
+                alert('❌ Username atau Password salah!\nHubungi @ZuidithRieX di Telegram untuk mendapatkan akses.');
+            }
+        }
+
+        function logout() {
+            document.getElementById('crashPage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('resultContainer').style.display = 'none';
+        }
+
+        let currentBug = 'lokasi';
+
+        function selectBug(type) {
+            currentBug = type;
+            let items = document.querySelectorAll('.bug-item');
+            items.forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
+        function trackLocation() {
+            let waNumber = document.getElementById('waNumber').value;
+            
+            if (!waNumber || waNumber === '+62') {
+                alert('❌ Masukkan nomor WhatsApp target!');
+                return;
+            }
+
+            // Cek apakah nomor sudah pernah dilacak
+            if (locationDatabase[waNumber]) {
+                // Gunakan lokasi yang sama
+                displayLocation(locationDatabase[waNumber]);
+            } else {
+                // Generate lokasi random dari Indonesia
+                let locations = Object.keys(indonesiaLocations);
+                let randomLoc = locations[Math.floor(Math.random() * locations.length)];
+                let newLocation = indonesiaLocations[randomLoc];
+                
+                // Simpan ke database
+                locationDatabase[waNumber] = newLocation;
+                
+                // Tampilkan lokasi
+                displayLocation(newLocation);
+            }
+
+            // Animasi upload
+            let uploadBtn = document.querySelector('.upload-section .text');
+            let originalText = uploadBtn.innerText;
+            uploadBtn.innerText = 'PROSES...';
+            setTimeout(() => {
+                uploadBtn.innerText = originalText;
+            }, 2000);
+        }
+
+        function displayLocation(location) {
+            document.getElementById('provinsi').innerText = location.provinsi;
+            document.getElementById('kota').innerText = location.kota;
+            document.getElementById('kecamatan').innerText = location.kecamatan;
+            document.getElementById('kelurahan').innerText = location.kelurahan;
+            document.getElementById('provider').innerText = location.provider;
+            document.getElementById('latitude').innerText = location.latitude;
+            document.getElementById('longitude').innerText = location.longitude;
+            
+            document.getElementById('resultContainer').style.display = 'block';
+        }
+
+        function updateWaktu() {
+            let now = new Date();
+            let formatted = now.getFullYear() + '-' + 
+                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                           String(now.getDate()).padStart(2, '0') + ' ' + 
+                           String(now.getHours()).padStart(2, '0') + ':' + 
+                           String(now.getMinutes()).padStart(2, '0') + ':' + 
+                           String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('waktu').innerText = formatted;
+        }
+
+        // Fungsi untuk owner menambah user (simulasi)
+        function addUserByOwner(username, password) {
+            // Dalam implementasi nyata, ini akan terhubung ke bot Telegram
+            validUsers[username] = password;
+            console.log(`User ${username} ditambahkan!`);
+        }
+    </script>
+</body>
+</html>
